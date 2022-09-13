@@ -8,9 +8,9 @@ from .models import Student
 def students_list(request):
     template = 'students_list.html'
     ordering = 'group'
-    students = Student.objects.order_by(ordering)
+    students = Student.objects.all().order_by(ordering)
     context = {
-        'students': students
+        'object_list': students
     }
 
     return render(request, template, context)
